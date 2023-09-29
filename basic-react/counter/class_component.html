@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUGAS SIMPLE COUNTER (CLASS)</title>
+</head>
+<body>
+    <h1>Pengenalan React Dasar</h1>
+
+    <div id="class"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel">
+      class MyComponent extends React.Component{
+        constructor(props){
+          super(props);
+          this.state={
+            count:0
+          };
+        }
+        
+        tambah = ()=>{
+          this.setState(setState=>({
+            count: setState.count +1
+          }));
+        }
+
+        kurang = ()=>{
+          this.setState(setState=>({
+            count: setState.count -1
+          }));
+        }
+
+        render(){
+          return(
+            <div>
+              <h2>Counter Class</h2>
+              <h1>{this.state.count}</h1>
+              <div>
+                <button onClick={this.kurang}> -1 </button>
+                <button onClick={this.tambah}> +1 </button>
+              </div>
+            </div>
+          )
+        }
+      }
+      ReactDOM.createRoot(document.getElementById('class')).render(<MyComponent />);
+    </script>
+</body>
+</html>
